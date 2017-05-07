@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "diagramlib", "diagramlib\diagramlib.csproj", "{E1E15025-5B15-464A-BE07-FD402D6A2092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{165A1B13-9A9D-43B8-B7E8-B7DC02537E4F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1E15025-5B15-464A-BE07-FD402D6A2092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E15025-5B15-464A-BE07-FD402D6A2092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E15025-5B15-464A-BE07-FD402D6A2092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E15025-5B15-464A-BE07-FD402D6A2092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165A1B13-9A9D-43B8-B7E8-B7DC02537E4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165A1B13-9A9D-43B8-B7E8-B7DC02537E4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165A1B13-9A9D-43B8-B7E8-B7DC02537E4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165A1B13-9A9D-43B8-B7E8-B7DC02537E4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
