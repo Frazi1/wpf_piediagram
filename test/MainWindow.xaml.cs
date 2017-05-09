@@ -36,7 +36,7 @@ namespace test
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Plotter.Items = Customers;
+            ////Plotter.Items = Customers;
             //Plotter.ConstructPiePieces();
         }
     }

@@ -21,12 +21,17 @@
     </Window.Resources>
     <Grid>
         <Button Width="50" Height="20" HorizontalAlignment="Left" Click="Button_Click"/>
-        <diagramlib1:Plotter x:Name="Plotter" Width="300" DependentValueName="Bill" IndependentValueName="Street"  
+        <diagramlib1:Plotter x:Name="Plotter" Width="300" DependentValueName="Bill" IndependentValueName="Street" HoleSize="0.05"
+                             ItemsSource="{Binding Customers, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}">
+            <diagramlib1:Plotter.ColorSelector>
+                <diagramlib1:IndexedColorSelector Brushes="{StaticResource Brushes}"/>
+            </diagramlib1:Plotter.ColorSelector>
+        </diagramlib1:Plotter>
+        <!--<diagramlib1:Plotter x:Name="Plotter" Width="300" DependentValueName="Bill" IndependentValueName="Street"  
                              DataContext="{Binding Customers, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}">
             <diagramlib1:Plotter.ColorSelector>
                 <diagramlib1:IndexedColorSelector Brushes="{StaticResource Brushes}"/>
             </diagramlib1:Plotter.ColorSelector>
-
-        </diagramlib1:Plotter>
+        </diagramlib1:Plotter>-->
     </Grid>
 </Window>           
