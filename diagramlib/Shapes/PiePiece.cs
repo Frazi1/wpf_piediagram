@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -7,6 +8,16 @@ namespace diagramlib.Shapes
     public class PiePiece : Shape
     {
         #region DependecyPropertries
+
+        public static readonly DependencyProperty PushOutProperty = DependencyProperty.Register(
+            "PushOut", typeof(double), typeof(PiePiece),
+            new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public double PushOut
+        {
+            get { return (double) GetValue(PushOutProperty); }
+            set { SetValue(PushOutProperty, value); }
+        }
 
         public static readonly DependencyProperty RadiusProperty = DependencyProperty.Register(
             "Radius", typeof(double), typeof(PiePiece),
@@ -129,6 +140,15 @@ namespace diagramlib.Shapes
                 Utils.CartesianCoordinate(RotationAngle + WedgeAngle, Radius);
             outerArcEndPoint.Offset(CenterX, CenterY);
 
+            if (PushOut > 0)
+            {
+                Point offsetPoint = Utils.CartesianCoordinate(RotationAngle + WedgeAngle / 2, PushOut);
+                innerArcEndPoint.Offset(offsetPoint.X, offsetPoint.Y);
+                innerArcStartPoint.Offset(offsetPoint.X, offsetPoint.Y);
+                outerArcEndPoint.Offset(offsetPoint.X, offsetPoint.Y);
+                outerArcStartPoint.Offset(offsetPoint.X, offsetPoint.Y);
+            }
+
             bool largeArc = WedgeAngle > 180.0;
 
             Size outerArcSize = new Size(Radius, Radius);
@@ -141,28 +161,9 @@ namespace diagramlib.Shapes
             context.Close();
         }
 
-        private void DrawTest(StreamGeometryContext context)
+        public PiePiece()
         {
-            Point startPoint = new Point(CenterX, CenterY);
-
-            Point outerArcStartPoint =
-                Utils.CartesianCoordinate(RotationAngle, Radius);
-            outerArcStartPoint.Offset(CenterX, CenterY);
-
-            Point outerArcEndPoint =
-                Utils.CartesianCoordinate(RotationAngle + WedgeAngle, Radius);
-            outerArcEndPoint.Offset(CenterX, CenterY);
-
-            bool largeArc = WedgeAngle > 180.0;
-
-            Size outerArcSize = new Size(Radius, Radius);
-            Size innerArcSize = new Size(InnerRadius, InnerRadius);
-
-            context.BeginFigure(startPoint, true, true);
-            context.LineTo(outerArcStartPoint, true, true);
-            context.ArcTo(outerArcEndPoint, outerArcSize, 0, largeArc, SweepDirection.Clockwise, true, true);
-            context.LineTo(startPoint, true, true);
-            context.Close();
+            this.ToolTip = new ToolTip();
         }
 
         #endregion

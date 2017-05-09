@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
-        <x:ArrayExtension Type="{x:Type Brush}" x:Key="brushes">
+        <x:ArrayExtension Type="{x:Type Brush}" x:Key="Brushes">
             <SolidColorBrush Color="#9F15C3"/>
             <SolidColorBrush Color="#FF8E01"/>
             <SolidColorBrush Color="#339933"/>
@@ -21,9 +21,10 @@
     </Window.Resources>
     <Grid>
         <Button Width="50" Height="20" HorizontalAlignment="Left" Click="Button_Click"/>
-        <diagramlib1:Plotter x:Name="Plotter" Width="300" DependentValueName="Bill" IndependentValueName="Street">
+        <diagramlib1:Plotter x:Name="Plotter" Width="300" DependentValueName="Bill" IndependentValueName="Street"  
+                             DataContext="{Binding Customers, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}">
             <diagramlib1:Plotter.ColorSelector>
-                <diagramlib1:IndexedColorSelector Brushes="{StaticResource brushes}"/>
+                <diagramlib1:IndexedColorSelector Brushes="{StaticResource Brushes}"/>
             </diagramlib1:Plotter.ColorSelector>
 
         </diagramlib1:Plotter>

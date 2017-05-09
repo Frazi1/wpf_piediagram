@@ -27,16 +27,17 @@ namespace test
         {
             Customers = new[]
             {
-                new Customer("Nab", 100),
-                new Customer("Pobedy", 150),
-                new Customer("Lenina", 200)
+                new Customer("Nab", 40),
+                new Customer("Pobedy", 90),
+                new Customer("Lenina", 200),
+                new Customer("Petuha", 300) 
             };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Plotter.Items = Customers;
-            Plotter.ConstructPiePieces();
+            //Plotter.Items = Customers;
+            //Plotter.ConstructPiePieces();
         }
     }
 }

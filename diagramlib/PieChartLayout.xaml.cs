@@ -100,11 +100,11 @@ namespace diagramlib
             InitializeComponent();
         }
 
-        public static double GetPlottedPropertyValue(object item, string dependentValueName)
+        public static object GetPropertyValue(object item, string dependentValueName)
         {
             PropertyDescriptorCollection filterPropDesc = TypeDescriptor.GetProperties(item);
             object itemValue = filterPropDesc[dependentValueName].GetValue(item);
-            return (double) itemValue;
+            return itemValue;
         }
     }
 }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="IColorSelector.cs" />
     <Compile Include="IndexedColorSelector.cs" />
+    <Compile Include="PercentageConverter.cs" />
     <Compile Include="PieChartLayout.xaml.cs">
       <DependentUpon>PieChartLayout.xaml</DependentUpon>
     </Compile>
